@@ -15,31 +15,38 @@
 
 
 
-            while(playAgain)
+            while (playAgain)
             {
                 guess = 0;
                 guesses = 0;
                 response = "";
                 number = random.Next(min, max + 1);
 
-                while(guess != number)
+                while (guess != number)
                 {
                     Console.WriteLine($"Guess a number between {min} - {max}:");
                     guess = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Guess: " + guess);
 
-                    if(guess > number)
+                    if (guess > number)
                     {
                         Console.WriteLine(guess + " is to high!");
                     }
-                    else if(guess < number)
+                    else if (guess < number)
                     {
                         Console.WriteLine(guess + " is to low!");
                     }
                     guesses++;
                 }
+                string text = @"
+                                        __     __          __          ___         _  
+                                        \ \   / /          \ \        / (_)       | | 
+                                         \ \_/ /__  _   _   \ \  /\  / / _ _ __   | | 
+                                          \   / _ \| | | |   \ \/  \/ / | | '_ \  | | 
+                                           | | (_) | |_| |    \  /\  /  | | | | | |_| 
+                                           |_|\___/ \__,_|     \/  \/   |_|_| |_| (_) ";
+
+                Console.WriteLine(text);
                 Console.WriteLine("Number: " + number);
-                Console.WriteLine("YOU WIN!");
                 Console.WriteLine("Guesses: " + guesses);
 
                 Console.WriteLine("Would you like to play again? Y/N: ");
@@ -59,6 +66,7 @@
 
 
             Console.WriteLine("Thanks for playing!");
+            Console.ReadKey();
         }
     }
 }
