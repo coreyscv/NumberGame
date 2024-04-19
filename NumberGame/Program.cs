@@ -19,7 +19,6 @@
             {
                 guess = 0;
                 guesses = 0;
-                response = "";
                 number = random.Next(min, max + 1);
 
                 while (guess != number)
@@ -29,14 +28,36 @@
 
                     if (guess > number)
                     {
-                        Console.WriteLine(guess + " is to high!");
+                        Console.WriteLine(guess + " is to high");
                     }
                     else if (guess < number)
                     {
-                        Console.WriteLine(guess + " is to low!");
+                        Console.WriteLine(guess + " is to low");
                     }
+
+                    int diff = Math.Abs(guess - number);
+
+                    switch (diff)
+                    {
+                        case int n when n >= 20 && guess != number:
+                            Console.WriteLine("you are frozen!");
+                            break;
+                        case int n when n >= 10 && guess != number:
+                            Console.WriteLine("you are cold!");
+                            break;
+                        case int n when n >= 3 && guess != number:
+                            Console.WriteLine("you are warm!");
+                            break;
+                        case int n when n <= 2 && guess != number:
+                            Console.WriteLine("you are on fire!");
+                            break;
+                        default:
+                            break;
+                    }
+
                     guesses++;
                 }
+
                 string text = @"
                                         __     __          __          ___         _  
                                         \ \   / /          \ \        / (_)       | | 
